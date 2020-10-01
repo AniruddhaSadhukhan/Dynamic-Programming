@@ -15,6 +15,9 @@
 # Subset1 = {1}, sum of Subset1 = 1
 # Subset2 = {4}, sum of Subset2 = 4
 
+import math
+
+
 def subsetSum(val, n, W):
 
     if W == 0:
@@ -42,13 +45,11 @@ def make2DMemory(n, W):
 def minSubsetSumDiff(val):
     n = len(val)
     S = sum(val)
-    W = S
-    if S % 2 != 0:
-        W = S-1  # if sum is odd
 
     # From half of sum to 0, check which subsetSum is possible
     # The max one will produce the least diff
-    W = W//2
+    # Diff = S2 - S1 = (S-S1) - S1 = S- 2*S1
+    W = math.floor(W/2)
 
     make2DMemory(n, W)
 
