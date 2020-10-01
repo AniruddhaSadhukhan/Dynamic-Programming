@@ -49,7 +49,7 @@ def minSubsetSumDiff(val):
     # From half of sum to 0, check which subsetSum is possible
     # The max one will produce the least diff
     # Diff = S2 - S1 = (S-S1) - S1 = S- 2*S1
-    W = math.floor(W/2)
+    W = math.floor(S/2)
 
     make2DMemory(n, W)
 
