@@ -25,12 +25,6 @@
 #     If item is excluded, its marked as processed and will not be taken up later
 
 
-# the setrecursionlimit function is
-# used to modify the default recursion
-# limit set by python. Using this,
-# we can increase the recursion limit
-# to satisfy our needs
-
 # ==Use this to increase recursion limit in case of large input==
 import sys
 sys.setrecursionlimit(10**6)
