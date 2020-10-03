@@ -1,4 +1,5 @@
-# Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum.
+# Given a set of non-negative integers, and a value sum,
+# determine if there is a subset of the given set with sum equal to given sum.
 # Example:
 
 # Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
@@ -17,7 +18,7 @@ def subsetSum(val, n, W):
     if n == 0:
         return False
 
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if(val[n-1] > W):

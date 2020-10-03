@@ -1,4 +1,5 @@
-# Partition problem is to determine whether a given set can be partitioned into two subsets such that the sum of elements in both subsets is same.
+# Partition problem is to determine whether a given set can be partitioned
+# into two subsets such that the sum of elements in both subsets is same.
 # Examples:
 
 # arr[] = {1, 5, 11, 5}
@@ -18,7 +19,7 @@ def subsetSum(val, n, W):
     if n == 0:
         return False
 
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if(val[n-1] > W):

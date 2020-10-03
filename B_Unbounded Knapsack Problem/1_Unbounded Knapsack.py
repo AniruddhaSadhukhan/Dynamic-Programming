@@ -1,5 +1,8 @@
 # Unbounded Knapsack (Repetition of items allowed)
-# You are given weights and values of N items, put these items in a knapsack of capacity W to get the maximum total value in the knapsack. This is different from classical Knapsack problem, here we are allowed to use unlimited number of instances of an item.
+# You are given weights and values of N items, put these items in a knapsack
+# of capacity W to get the maximum total value in the knapsack.
+# This is different from classical Knapsack problem,
+# here we are allowed to use unlimited number of instances of an item.
 # Input : W = 100
 #        val[]  = {1, 30}
 #        wt[] = {1, 50}
@@ -32,7 +35,7 @@ sys.setrecursionlimit(10**6)
 
 
 def unboundedKnapsack(val, wt, n, W):
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if n == 0 or W == 0:

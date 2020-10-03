@@ -1,4 +1,5 @@
-# You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+# You are given a list of non-negative integers, a1, a2, ..., an, and a target, S.
+# Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
 
 # Find out how many ways to assign symbols to make sum of integers equal to target S.
 
@@ -21,7 +22,8 @@
 # Input: nums is [1, 1, 2, 3], S is 1.
 # Output: 3
 
-# Logic: This is exactly similar to partitioning array into 2 subsets and finding difference
+# Logic:
+# This is exactly similar to partitioning array into 2 subsets and finding difference
 # Example:
 # Sum{+1, -1, -2, +3} = 1
 # Sum{1,3} - Sum{1,2} = 1
@@ -34,7 +36,7 @@ def subsetSumCount(val, n, W):
     if n == 0:
         return 0
 
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if(val[n-1] > W):

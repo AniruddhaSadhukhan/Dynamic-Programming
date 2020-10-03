@@ -1,4 +1,5 @@
-# Given an array arr[] of length N and an integer X, the task is to find the number of ways absolute difference of subsets sum will be equal to X.
+# Given an array arr[] of length N and an integer X, the task is to find the
+# number of ways absolute difference of subsets sum will be equal to X.
 
 # Examples:
 
@@ -16,7 +17,7 @@ def subsetSumCount(val, n, W):
     if n == 0:
         return 0
 
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if(val[n-1] > W):

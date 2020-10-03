@@ -1,14 +1,18 @@
-# You are given weights and values of N items, put these items in a knapsack of capacity W to get the maximum total value in the knapsack. Note that we have only one quantity of each item.
+# You are given weights and values of N items, put these items in a knapsack of capacity W
+# to get the maximum total value in the knapsack. Note that we have only one quantity of each item.
 
 # Input:
-# The first line of input contains an integer T denoting the number of test cases. Then T test cases follow. Each test case consists of four lines.
+# The first line of input contains an integer T denoting the number of test cases.
+# Then T test cases follow. Each test case consists of four lines.
 # The first line consists of N the number of items.
 # The second line consists of W, the maximum capacity of the knapsack.
 # In the next line are N space separated positive integers denoting the values of the N items,
-# and in the fourth line are N space separated positive integers denoting the weights of the corresponding items.
+# and in the fourth line are N space separated positive integers
+# denoting the weights of the corresponding items.
 
 # Output:
-# For each testcase, in a new line, print the maximum possible value you can get with the given conditions that you can obtain for each test case in a new line.
+# For each testcase, in a new line, print the maximum possible value you can get with the given conditions
+# that you can obtain for each test case in a new line.
 
 # Constraints:
 # 1 ≤ T ≤ 100
@@ -34,8 +38,10 @@
 # 0
 
 # Explanation:
-# Test Case 1: With W = 4, you can either choose the 0th item or the 2nd item. Thus, the maximum value you can generate is the max of val[0] and val[2], which is equal to 3.
-# Test Case 2: With W = 3, there is no item you can choose from the given list as all the items have weight greater than W. Thus, the maximum value you can generate is 0.
+# Test Case 1: With W = 4, you can either choose the 0th item or the 2nd item.
+# Thus, the maximum value you can generate is the max of val[0] and val[2], which is equal to 3.
+# Test Case 2: With W = 3, there is no item you can choose from the given list as all the items
+# have weight greater than W. Thus, the maximum value you can generate is 0.
 
 
 def knapsack(val, wt, n, W):
@@ -43,7 +49,7 @@ def knapsack(val, wt, n, W):
     if n == 0 or W == 0:
         return 0
 
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if(wt[n-1] > W):

@@ -1,4 +1,6 @@
-# Given an integer array arr of size N, the task is to divide it into two sets S1 and S2 such that the absolute difference between their sums is minimum and find the minimum difference
+# Given an integer array arr of size N, the task is to divide it into two sets
+# S1 and S2 such that the absolute difference between their sums is minimum
+# and find the minimum difference
 
 # Example 1:
 
@@ -26,7 +28,7 @@ def subsetSum(val, n, W):
     if n == 0:
         return False
 
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if(val[n-1] > W):

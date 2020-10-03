@@ -17,7 +17,7 @@ from sys import maxsize
 
 
 def coinChangeMinCoins(wt, n, W):
-    if M[n][W]:
+    if M[n][W] != None:
         return M[n][W]
 
     if W == 0:
