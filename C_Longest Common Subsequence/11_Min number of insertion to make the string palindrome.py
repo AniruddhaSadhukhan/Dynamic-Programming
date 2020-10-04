@@ -1,20 +1,15 @@
-# Given a sequence, print a longest palindromic subsequence of it.
-# Examples :
+# Given a string str, the task is to find the minimum number of characters
+# to be inserted to convert it to palindrome.
 
-# Input : BBABCBCAB
-# Output : BABCBAB
-# The above output is the longest
-# palindromic subsequence of given
-# sequence. "BBBBB" and "BBCBB" are
-# also palindromic subsequences of
-# the given sequence, but not the
-# longest ones.
+# ab: Number of insertions required is 1 i.e. bab
+# aa: Number of insertions required is 0 i.e. aa
+# abcd: Number of insertions required is 3 i.e. dcbabcd
+# abcda: Number of insertions required is 2 i.e. adcbcda
+# abcde: Number of insertions required is 4 i.e. edcbabcde
 
-# Input : GEEKSFORGEEKS
-# Output : 5 : It can be either EEKEE
-#          or EESEE or EEGEE, ..
-
-# Logic: LPS will be LCS(str, reverse(str))
+# Logic:
+# Min # of insertion = Min # of deletion
+#                    = String Length - Length of Longest Palindromic Subsequence
 
 def LCS(X, Y, n, m):
     if M[n][m] != None:
@@ -54,7 +49,12 @@ for _ in range(T):
     n = len(X)
 
     make2DMemory(n, n)
-    print(LPS(X))
+    print(n - LPS(X))
 
-# 1
-# GEEKSFORGEEKS
+# 6
+# ab
+# aa
+# abcd
+# abcda
+# abcde
+# aebcbda
