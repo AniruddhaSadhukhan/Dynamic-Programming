@@ -10,10 +10,10 @@ def LCS(X, Y, n, m):
     if M[n][m] != None:
         return M[n][m]
 
-    if n == 0 or m == 0:
-        return 0
+    elif n == 0 or m == 0:
+        M[n][m] = 0
 
-    if X[n-1] == Y[m-1]:
+    elif X[n-1] == Y[m-1]:
         M[n][m] = LCS(X, Y, n-1, m-1) + 1
     else:
         M[n][m] = max(
@@ -36,11 +36,11 @@ def LCS_TopDown(X, Y, n, m):
     for i in range(1, n+1):
         for j in range(1, m+1):
             if X[i-1] == Y[j-1]:
-                M[i][j] = LCS(X, Y, i-1, j-1) + 1
+                M[i][j] = M[i-1][j-1] + 1
             else:
                 M[i][j] = max(
-                    LCS(X, Y, i-1, j),
-                    LCS(X, Y, i, j-1)
+                    M[i-1][j],
+                    M[i][j-1]
                 )
 
     return M[n][m]
@@ -60,6 +60,7 @@ for _ in range(T):
 
     make2DMemory(n, m)
     print(LCS(X, Y, n, m))
+    # print(LCS_TopDown(X, Y, n, m))
 
 
 # 2

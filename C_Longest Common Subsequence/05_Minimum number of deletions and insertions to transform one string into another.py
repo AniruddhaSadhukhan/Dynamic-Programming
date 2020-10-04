@@ -29,10 +29,10 @@ def LCS(X, Y, n, m):
     if M[n][m] != None:
         return M[n][m]
 
-    if n == 0 or m == 0:
-        return 0
+    elif n == 0 or m == 0:
+        M[n][m] = 0
 
-    if X[n-1] == Y[m-1]:
+    elif X[n-1] == Y[m-1]:
         M[n][m] = LCS(X, Y, n-1, m-1) + 1
     else:
         M[n][m] = max(

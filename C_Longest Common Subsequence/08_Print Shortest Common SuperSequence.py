@@ -22,23 +22,34 @@ def LCS(X, Y, n, m):
     if M[n][m] != None:
         return M[n][m]
 
-    if n == 0:
-        return 0, Y[:m]
-    elif m == 0:
-        return 0, X[:n]
+    elif n == 0 or m == 0:
+        M[n][m] = 0
 
-    if X[n-1] == Y[m-1]:
-        a = LCS(X, Y, n-1, m-1)
-        M[n][m] = (a[0] + 1, a[1] + X[n-1])
+    elif X[n-1] == Y[m-1]:
+        M[n][m] = LCS(X, Y, n-1, m-1) + 1
     else:
-        a = LCS(X, Y, n-1, m)
-        b = LCS(X, Y, n, m-1)
-        if a[0] >= b[0]:
-            M[n][m] = (a[0], a[1] + X[n-1])
-        else:
-            M[n][m] = (b[0], b[1] + Y[m-1])
+        M[n][m] = max(
+            LCS(X, Y, n-1, m),
+            LCS(X, Y, n, m-1)
+        )
 
     return M[n][m]
+
+
+def printSCS(X, Y, n, m):
+
+    if n == 0:
+        return Y[:m]
+    elif m == 0:
+        return X[:n]
+
+    if X[n-1] == Y[m-1]:
+        return printSCS(X, Y, n-1, m-1) + X[n-1]
+    else:
+        if M[n-1][m] >= M[n][m-1]:
+            return printSCS(X, Y, n-1, m) + X[n-1]
+        else:
+            return printSCS(X, Y, n, m-1)+Y[m-1]
 
 
 def make2DMemory(n, W):
@@ -48,7 +59,9 @@ def make2DMemory(n, W):
 
 def shortestCommonSuperSequence(X, Y, n, m):
     make2DMemory(n, m)
-    return LCS(X, Y, n, m)[1]
+    # Storing SCS for each cell in M will give TLE for very large strings.
+    LCS(X, Y, n, m)
+    return(printSCS(X, Y, n, m))
 
 
 T = int(input())
