@@ -23,6 +23,28 @@ def LCS(X, Y, n, m):
 
     return M[n][m]
 
+# Top Down approach
+# Use a double loop and replace n with i and m with j
+
+
+def LCS_TopDown(X, Y, n, m):
+    for i in range(n+1):
+        for j in range(m+1):
+            if i == 0 or j == 0:
+                M[i][j] = 0
+
+    for i in range(1, n+1):
+        for j in range(1, m+1):
+            if X[i-1] == Y[j-1]:
+                M[i][j] = LCS(X, Y, i-1, j-1) + 1
+            else:
+                M[i][j] = max(
+                    LCS(X, Y, i-1, j),
+                    LCS(X, Y, i, j-1)
+                )
+
+    return M[n][m]
+
 
 def make2DMemory(n, W):
     global M
